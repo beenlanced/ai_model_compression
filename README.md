@@ -1,6 +1,10 @@
 ### Prequisites
 
-- Understanding of python
+- Understanding of Python
+
+- Understanding of Pytorch especially building Neural Network Models.
+
+-
 
 Talk about python version see LSTM
 
