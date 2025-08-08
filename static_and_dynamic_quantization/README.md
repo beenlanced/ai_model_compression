@@ -1,0 +1,98 @@
+## Static and Dynamic Quantization
+
+This section of the project examines Static and Dynamic Quantization through a worked out example notebook. The notebook and materials are part of the LinkedIn Learning Course: [Ai Model Compression Techniques: Building Cheaper, Faster, and Greener AI:](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+---
+
+### Dynamic Quantization - Quantizes Weights Post-Training: Activations quantized during inference
+
+Is the easiest of the two techniques to implement. It reduces neural network model size, speeds up model inference, but losses some accuracy compared to the original non-quantized model.
+
+The following figure summarizes the key results:
+
+<p>
+  <img alt="Dynamic Quantization Benefits" src="dynamic_quant.png" width="450" height="190"/>
+</p>
+
+[img source: static and dynamic section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+---
+
+### Static Post-Training Quantization (PTQ)
+
+Static quantization is more complicated as it requires three steps: `preparation` of the model whered "fuse operations" and "insertion of observers" are accomplished, `calibration` of the model with sample data to collect statistics to calculate optimal scale factors, and finally the `convert` step where both weight and activations are quantized from FP32 to INT8 (i.e., converting the calibrated model in step two to its final quantized form).
+
+**Fuse operations (module fusion)**
+
+Refers to combining layers for efficiency: This involves grouping multiple sequential layers, such as a convolutional layer followed by a BatchNorm layer and a ReLU activation function ([Conv2d, BatchNorm, ReLU]), into a single, fused module.
+
+Leads to _faster inference_. Instead of executing three separate operations, the fused module is treated as a single operation by the hardware, which reduces memory accesses and improves computational efficiency. Plus, it improves accuracy because Fusing operations can help reduce quantization error by preventing intermediate values from being quantized and de-quantized between each operation.
+
+**Insertion of Observers**
+
+Refers to collecting activation statistics. In static quantization, the goal is to determine fixed quantization parameters (scale factors and zero-point) for activations before inference.
+
+Observer modules are strategically placed within the model at points where activations will be quantized. During a calibration phase, a representative dataset (not the entire training dataset) is passed through the prepared model. Observers record the distribution (e.g., min and max values) of the activations at their respective locations. Determining quantization parameters: Based on the observed activation distributions, algorithms determine optimal scale and zero-point values for each layer to map the floating-point activation ranges to integer ranges.
+
+Static PTQ reduces neural network model size, speeds up model inference, and increases model accuracy compared to the original non-quantized model.
+
+The following figure summarizes the key results:
+
+<p>
+  <img alt="Static Quantization Benefits" src="static_quantization.png" width="450" height="190"/>
+</p>
+
+[img source: static and dynamic section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+---
+
+## Implemented Models WorkFlow
+
+Both the dynamica and static models follow the same general workflow:
+
+- Load a pre-trained model with a set of test data
+
+- Apply either dynamic or static quantization methods
+
+- Measure and compare performance of each model to the original non-quantized model performance.
+
+- Performance measures used for comparisons
+
+  - Model size in bytes to show storage efficiency
+    Involves multiplying the size of the data type (e.g., torch.int8, toch.quint8 for quantized weights/activations, torch.float32 for non-quantized parts) for each elelent and then summing up the sizes to arrive at the model size. Luckily, PyTorch has functions that make this easy to do.
+
+  - inference time per batch to demonstrate performance improvements
+
+  - accuracy on the a test set of data to measure any impact on model quality.
+
+---
+
+## Training and Baseline Model Performance
+
+The notebooks will use a standard approach with the `Adam Optimizer` and `Cross Entropy Loss`.
+
+Training only use a subset of 10,000 randomly selected images from a training set based on the CIFAR_10 dataset using `5 epochs`
+
+In the real-world, in a production setting, I would use the full dataset and train with more epochs.
+
+The following figure provides a sample of functions and baseline performance. Performance will vary the platform that the notebooks are run upon, so these values will vary.
+
+<p>
+  <img alt="Training and Baseline Performance" src="train_baseline_perf.png" width="450" height="190"/>
+</p>
+
+[img source: static and dynamic section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+---
+
+## Data Set Used for in the notebook
+
+<p>
+  <img alt="CIFAR_10 Dataset" src="cifar_dataset.png" width="500" height="190"/>
+</p>
+
+[img source: static and dynamic section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+---
+
+### Notebook results:
