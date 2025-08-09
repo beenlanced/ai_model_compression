@@ -1,7 +1,7 @@
 [project]
 name = "ai-model-compression"
 version = "0.1.0"
-description = "Understanding how AI model compression and distillation"
+description = "Understanding how AI model compression, pruning, and distillation"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -10,4 +10,5 @@ dependencies = [
     "matplotlib>=3.10.5",
     "numpy>=2.3.2",
     "torch>=2.7.1",
+    "torchvision>=0.22.1",
 ]
