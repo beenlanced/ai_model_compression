@@ -1,6 +1,6 @@
 ## Static and Dynamic Quantization
 
-This section of the project examines Static, Dynamic and Quantization-Aware Quantization through a worked out example notebook. The notebook and materials are part of the LinkedIn Learning Course: [Ai Model Compression Techniques: Building Cheaper, Faster, and Greener AI:](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+This section of the project examines Static, Dynamic and Quantization-Aware Training (QAT) Quantization through a worked out example notebook. The notebook and materials are part of the LinkedIn Learning Course: [Ai Model Compression Techniques: Building Cheaper, Faster, and Greener AI:](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
 
 ---
 
