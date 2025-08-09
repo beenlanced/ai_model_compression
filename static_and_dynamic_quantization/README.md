@@ -1,6 +1,6 @@
 ## Static and Dynamic Quantization
 
-This section of the project examines Static, Dynamic and Quantization-Aware Quantization through a worked out example notebook. The notebook and materials are part of the LinkedIn Learning Course: [Ai Model Compression Techniques: Building Cheaper, Faster, and Greener AI:](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+This section of the project examines Static, Dynamic and Quantization-Aware Training (QAT) Quantization through a worked out example notebook. The notebook and materials are part of the LinkedIn Learning Course: [Ai Model Compression Techniques: Building Cheaper, Faster, and Greener AI:](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
 
 ---
 
@@ -85,6 +85,52 @@ The following figure provides a sample of functions and baseline performance. Pe
 
 ---
 
+### Quantization-Aware Training (QAT)
+
+<p>
+  <img alt="Quantization-Aware Training Benefits" src="qat.png" width="300" height="200"/>
+</p>
+
+[img source: static and dynamic section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+#### Why use QAT?
+
+Quantization in the other methods reduce inference times and bytes sizes, but may reduce model accuracy. QAT aims to reduce inference times and byte sizes while maintaining or improving accuracy. High-precision applications can take advantage of this technique.
+
+Accuracy gets improved by QAT from an original model because the quantization constraints act as a form of regularization during training.
+
+Recall regularization in neural networks helps prevent overfitting and improve the model's ability to generalize to unseen data. Overfitting occurs when a model learns the training data too well, including noise and specific patterns that do not generalize to new examples. Regularization addresses this by introducing mechanisms that encourage simpler models and discourage overly complex representations. Additionally, regularization can stabilize the training process by preventing weights from becoming excessively large, which can lead to numerical instability and difficulty in convergence during optimization.
+
+Common regularization techniques include L1 and L2 regularization (which penalize the absolute or squared values of weights, respectively), Dropout (which randomly deactivates neurons during training), and Data Augmentation (which expands the training dataset by creating modified versions of existing data).
+
+The downside of QAT is that it requires significantly more engineering effort.
+
+The figure below provides a side by side comparion
+
+<p>
+  <img alt="Quantization-Aware Training Comparison to Post-Traiing Benefits" src="qat_compare.png" width="350" height="200"/>
+</p>
+
+[img source: static and dynamic section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+QAT implementation involves the following steps:
+
+<p>
+  <img alt="Quantization-Aware Training Steps" src="qat_steps.png" width="350" height="200"/>
+</p>
+
+---
+
+### When and Where to Use Each Quantization Technique
+
+|     Quantization Method     |                        When to Use It                        |           Where to use it           |
+| :-------------------------: | :----------------------------------------------------------: | :---------------------------------: |
+|           Dynamic           |                      Quick Deployments                       |      Non-critical Applications      |
+|           Static            | For Constrained Applications Where You Have Calibration Data | Mobile and Edge Device Applications |
+| Quantization-Aware Training |                    High-precision Systems                    |    Mission Critical Applications    |
+
+---
+
 ## Data Set Used for in the notebook
 
 <p>
@@ -95,4 +141,17 @@ The following figure provides a sample of functions and baseline performance. Pe
 
 ---
 
-### Notebook results:
+### Notebook results: Comparing the Quantization Techniques
+
+```
+================================================================================
+QUANTIZATION COMPARISON SUMMARY
+================================================================================
+Model Type                Size (MB)       Accuracy        Inference (ms)  Speedup
+--------------------------------------------------------------------------------
+Original FP32 (CPU)       18.31           0.5246          42.73           1.00      x
+Dynamic Quantization      5.70            0.5245          44.65           0.96      x
+Static Quantization       4.59            0.5255          22.45           1.90      x
+QAT                       4.61            0.5626          22.47           1.90      x
+================================================================================
+```
