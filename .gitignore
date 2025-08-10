@@ -68,3 +68,5 @@ venv.bak/
 
 #ignore pytorch
 fp32_model.pth
+*.pt
+*.npz
