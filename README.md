@@ -76,3 +76,25 @@ Quantization techniques are used to be able to use neural networks when there ar
 In the case of Quantization, we start with a tensor whose values we want to project to the 8-bit range. Using 8-bits, we can only store up to 256 numbers. The INT8 representation typically used for quantization can store the 256 integer numbers between -128 and 127.
 
 The range here refers to the range of **signed** bytes using [2's complement](http://en.wikipedia.org/wiki/2%27s_complement). Two's complement is the most common method of representing signed (positive, negative, and zero) integers on computers.
+
+### Comparison of Compression Techniques
+
+<p>
+  <img alt="Comparison Of Techniques" src="comparison_techniques.png" width="400" height="200"/>
+</p>
+
+[img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+<p>
+  <img alt="Guide to Choosing a Model Compression Technique" src="model_compression_guide.png" width="400" height="200"/>
+</p>
+
+[img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+Also, we can also consider combining approaches
+
+<p>
+  <img alt="Combined Approaches work Better Together" src="combined_approaches.png" width="250" height="200"/>
+</p>
+
+[img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
