@@ -44,6 +44,30 @@ As shown below, a small “student” model learns to mimic a large “teacher�
 
 [img source](https://arxiv.org/abs/2006.05525?ref=blog.roboflow.com) - The teacher-student framework for knowledge distillation
 
+### Temperature Scaling In Model Code - Helps Control Soft Target Distribution
+
+<p>
+  <img alt="Temperature Scaling" src="temperature_scaling.png" width="450" height="190"/>
+</p>
+
+[img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+### Distillation Loss
+
+<p>
+  <img alt="Distillation Loss Implementation" src="distillation_loss.png" width="450" height="200"/>
+</p>
+
+[img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+### Feature Distillation
+
+<p>
+  <img alt="Feature Distillation" src="feature_distillation.png" width="450" height="200"/>
+</p>
+
+[img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
 ---
 
 ### References
