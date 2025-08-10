@@ -192,4 +192,4 @@ Specifically, I would like to acknowledge:
 
 ## License
 
-## This project is licensed under the LinkedIn License - see the [LICENSE](./LICENSE) file for details
+#### This project is licensed under the LinkedIn License - see the [LICENSE](./LICENSE) file for details
