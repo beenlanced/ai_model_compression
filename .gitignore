@@ -70,3 +70,4 @@ venv.bak/
 fp32_model.pth
 *.pt
 *.npz
+data/
