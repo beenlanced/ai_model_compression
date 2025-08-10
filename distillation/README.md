@@ -70,6 +70,47 @@ As shown below, a small “student” model learns to mimic a large “teacher�
 
 ---
 
+### Combine Distillation and Fine-Tuning to Get Better Optimal model
+
+Fine-tuning uses a lower learning rate to preserve knowledge by making gentle updates to weights.
+
+Some best practices for Fine-Tuning:
+
+- Use a learning rate 5-10 times smaller than the initial training
+
+- Keep training epochs small (one to five typically sufficient)
+
+- Monitor validation performance to prevent overfitting
+
+---
+
+### Summary of Results from Notebook
+
+```
+==================================================
+KNOWLEDGE DISTILLATION SUMMARY
+==================================================
+Model                     Accuracy   Size (MB)    Inference (ms)  Parameters
+---------------------------------------------------------------------------
+Teacher                   98.97      2.63         118.97          688,138
+Student (Standard)        98.77      0.79         112.56          206,922
+Student (Distilled)       98.65      0.79         111.10          206,922
+Student (Fine-tuned)      99.12      0.79         112.09          206,922
+
+```
+
+<p>
+  <img alt="Knowledge Distilation Output Comparisons" src="knowledge_distillation_comparison.png" width="500" height="230"/>
+</p>
+
+Recall the key differences between the Student (Standard) and Distilled Student Training
+
+<p>
+  <img alt="Standard Student vs Distlled Student" src="stand_vs_distilled_student.png" width="400" height="200"/>
+</p>
+
+[img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
 ### References
 
 [Shrinking the Giants: How knowledge distillation is Changing the Landscape of Deep Learning Models](https://medium.com/@zone24x7_inc/shrinking-the-giants-how-knowledge-distillation-is-changing-the-landscape-of-deep-learning-models-83dffde577ec)
