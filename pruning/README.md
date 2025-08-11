@@ -53,7 +53,7 @@ A good starting point is typically to implement **post-training pruning**, since
 
 #### Types of Post-Training Pruning
 
-##### Unstructured Pruning
+##### Unstructured Pruning:
 
 Unstructured pruning is a simpler, more naive approach to pruning, but is an accessible method with low barriers to entry. General approaches to unstructured pruning use minimum thresholds depending on the raw weights themselves or their activations to determine whether the individual parameter should be pruned or not. If the parameter fails to meet the threshold, it is zeroed out. As unstructured pruning involves zeroing individual weights within the weight matrices, this means that all calculations prior to model pruning would be performed, and thus there is minimal latency improvement. On the other hand, it can help in denoising model weights for more consistent inference as well as aid in reducing model size lossless model compression. Unlike structured pruning, which certainly cannot be used without contextual information and adaptation, unstructured pruning can generally be used out of the box without too much risk.[[A Comprehensive Guide to Neural Network Model Pruning]](https://datature.io/blog/a-comprehensive-guide-to-neural-network-model-pruning).
 
@@ -63,9 +63,9 @@ Unstructured pruning is a simpler, more naive approach to pruning, but is an acc
 
 [img source: pruning section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
 
-##### Structured Pruning
+##### Structured Pruning:
 
-Structured pruning is a more ambitious, architecturally minded approach to pruning. By removing entire structured groups of weights, the method reduces the scale of calculations that would have to be made in the forward pass through the model’s weights graph. This has real improvements for model inference speed and model size[[A Comprehensive Guide to Neural Network Model Pruning]](https://datature.io/blog/a-comprehensive-guide-to-neural-network-model-pruning).
+Structured pruning is a more ambitious, architecturally minded approach to pruning. By removing entire structured groups of weights, the method reduces the scale of calculations that would have to be made in the forward pass through the model’s weights graph. This process has real improvements for model inference speed and model size[[A Comprehensive Guide to Neural Network Model Pruning]](https://datature.io/blog/a-comprehensive-guide-to-neural-network-model-pruning).
 
 <p>
   <img alt="Structured Pruning" src="structured_pruning.png" width="450" height="190"/>
@@ -75,7 +75,7 @@ Structured pruning is a more ambitious, architecturally minded approach to pruni
 
 ### Pruning Criteria
 
-There are a few criteria to decide on how to prune.
+Here area a few criteria to decide on how to prune.
 
 <p>
   <img alt="Pruning Criteria" src="criteria_pruning.png" width="450" height="190"/>
@@ -83,7 +83,7 @@ There are a few criteria to decide on how to prune.
 
 [img source: pruning section](https://www.linkedin.com/learning/
 
-### Pruning Schedules Matter
+### The Pruning Schedule Matter
 
 Pruning can be done in **one-shoot**, removing all targeted weights in a single operation or via **iterative pruning**, gradually removing weights with fine-tuning between steps.
 
@@ -95,17 +95,19 @@ Pruning can be done in **one-shoot**, removing all targeted weights in a single 
 
 ---
 
-### Fine-tuning After Pruning to Improve Accuracy
+### Fine-tuning After Pruning May be Needed to Improve Accuracy
 
 Generally, fine-tuning a model is the process of taking a pre-trained machine learning model and further training it on a specific dataset to adapt it to a particular task or domain. Essentially, it's like taking a general-purpose model and teaching it to become an expert in a specific area.
 
-In this case, we are taking the pre-trained model that has been pruned and training the model again to take adapt to the remaining connections. Basically, we are re-calculating the remaining weight values using a very low learning rate to avoid large weight swings and also applying only a small number of training epochs.
+In this case, we are taking the pre-trained model that has been pruned and training the model again to adapt to the remaining connections. Basically, we are re-calculating the remaining weight values using a very low learning rate to avoid large weight swings and also applying only a small number of training epochs.
 
 <p>
   <img alt="Fine-Tuning Process" src="fine_tuning_process.png" width="450" height="190"/>
 </p>
 
 [img source: pruning section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
+
+<br>
 
 It is important to keep in mind the **Pruning Rate vs the Fine-Tuning Epochs**. The greater the pruning the more fine-tuning epoches are required.
 
@@ -127,7 +129,7 @@ It is important to keep in mind the **Pruning Rate vs the Fine-Tuning Epochs**. 
 
 ---
 
-### Summary of Results from the Pruning and Fine Tuning: Layer Based Pruning Notebook
+### Summary of the Layer Based Pruning Notebook --Results from Pruning and Fine Tuning:
 
 The notebooks shows that structured pruning followed by Fine-Tuning delivers the best model with the greatest accuracy, reduced inference time, and saves the most memory in megabytes (MB).
 
@@ -142,6 +144,10 @@ Structured Pruned   | 98.63%   | 1.6492s        | 0.78    | 201849/201849 (100.0
 + Fine-tuned        | 99.16%   | 1.6424s        | 0.78    | 201849/201849 (100.0%)
 
 ```
+
+---
+
+### Here are Guidelines to Help Decide which Pruning Method to Use
 
 <p>
   <img alt="Pruning Method Selection" src="prune_method_selection.png" width="450" height="190"/>
