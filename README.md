@@ -10,7 +10,7 @@
 
 This project provides background educational materials and completes exercise files for the LinkedIn course: [AI Model Compression Techniques Building Cheaper Faster and Greener AI](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai/what-is-sustainable-ai?autoSkip=true&resume=false&u=35754684)
 
-The project explores how to make AI/ML models more efficient, cost-effective, and environmentally friendly. It dives into practical techniques such as **pruning**, **quantization**, and **knowledge distillation**. In the project, one can learn how to reduce model size and memory usage without significantly compromising accuracy. It uses hands-on coding exercises in PyTorch to implement these techniques and fine-tune models for optimal performance. The project builds one's understanding of how to balance accuracy, efficiency, and sustainability, giving one the tools to build smarter, faster, and greener AI systems. Whether building edge AI applications, deploying models at scale, or seeking to lower carbon footprints, this course equips provides actionable strategies to address real-world challenges in AI.
+The project explores how to make AI/ML models more efficient, cost-effective, and environmentally friendly. It dives into practical techniques such as **pruning**, **quantization**, and **knowledge distillation**. In the project, one can learn how to reduce model size and memory usage without significantly compromising accuracy. It uses hands-on coding exercises in PyTorch to implement these techniques and fine-tune models for optimal performance. The project builds one's understanding of how to balance accuracy, efficiency, and sustainability, giving one the tools to build smarter, faster, and greener AI systems. Whether building edge AI applications, deploying models at scale, or seeking to lower carbon footprints, this course provides actionable strategies to address real-world challenges in AI.
 
 ### The Learning Objectives Achieved by this Project
 
@@ -31,7 +31,7 @@ I build multiple Python coded Jupyter notebooks in four folders to highlight the
 - Folder 3 - Pruning
 - Folder 4 - Distillation
 
-### Comparison of Compression Techniques and Guides Summarizing Their Usage Based on Completing this LinkedIn Course
+### Summary of Compression Techniques and Guides Describing Their Usage
 
 <p>
   <img alt="Comparison Of Techniques" src="comparison_techniques.png" width="400" height="200"/>
@@ -39,13 +39,17 @@ I build multiple Python coded Jupyter notebooks in four folders to highlight the
 
 [img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
 
+#### Guide to Choosing a Model Compression Technique
+
 <p>
   <img alt="Guide to Choosing a Model Compression Technique" src="model_compression_guide.png" width="400" height="200"/>
 </p>
 
 [img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
 
-Also, we can also consider combining approaches
+<br>
+
+#### Example Showing the Benefits of Combining Approaches
 
 <p>
   <img alt="Combined Approaches work Better Together" src="combined_approaches.png" width="250" height="200"/>
@@ -53,8 +57,10 @@ Also, we can also consider combining approaches
 
 [img source: knowledge distillation](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
 
+#### Decision Chart Showing How to Select the Correct Compression Technique
+
 <p>
-  <img alt="Selecting the Right Compression Technique" src="select_technique.png" width="350" height="250"/>
+  <img alt="Selecting the Correct Compression Technique" src="select_technique.png" width="350" height="250"/>
 </p>
 
 [img source: wrap-up section](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai)
@@ -67,6 +73,7 @@ The project contains the key elements:
 
 - `Deep Learning` for neural networks building,
 - `Git` (version control),
+- `Fine-Tuning` improving the weights and activation functions of a pre-existing model to improve performance,
 - `Jupyter` python coded notebooks,
 - `Python` the standard modules,
 - `PyTorch` Machine Learning framework to train our deep neural network,
@@ -95,13 +102,13 @@ Here are some instructions to help you set up this project locally.
 
 ---
 
-## - Prequisites
+### Prequisites
 
 - Understanding of Python
 
 - Understanding of Pytorch especially building Neural Network Models.
 
-## Installation Steps
+### Installation Steps
 
 The Python version used for this project is `Python 3.12` to be compatible with `PyTorch`.
 
@@ -154,7 +161,7 @@ Follow the requirements for [Using uv with PyTorch](https://docs.astral.sh/uv/gu
 
 ---
 
-## References
+## Additional References Employed by the Project
 
 [Markdown](https://ashki23.github.io/markdown-latex.html)
 
@@ -183,6 +190,8 @@ You've `beenlanced`! 😉
 I would like to extend my gratitude to all the individuals and organizations who helped in the development and success of this project. Your support, whether through contributions, inspiration, or encouragement, have been invaluable. Thank you.
 
 Specifically, I would like to acknowledge:
+
+- The folks at LinkeIn Learning for the course: [AI Model Compression Techniques Building Cheaper Faster and Greener AI](https://www.linkedin.com/learning/ai-model-compression-techniques-building-cheaper-faster-and-greener-ai/what-is-sustainable-ai?autoSkip=true&resume=false&u=35754684)
 
 - [Hema Kalyan Murapaka](https://www.linkedin.com/in/hemakalyan) and [Benito Martin](https://martindatasol.com/blog) for sharing their README.md templates upon which I have derived my README.md.
 
